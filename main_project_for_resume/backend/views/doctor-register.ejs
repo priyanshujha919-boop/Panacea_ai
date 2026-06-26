@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Register</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            min-height: 100vh;
+            background: linear-gradient(135deg,#e0f7fa,#f8fbff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .form-container{
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .form-container h1{
+            text-align: center;
+            margin-bottom: 30px;
+            color: #0f766e;
+        }
+
+        .form-grid{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 20px;
+        }
+
+        .form-group{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full{
+            grid-column: span 2;
+        }
+
+        label{
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #334155;
+        }
+
+        input,
+        textarea{
+            padding: 12px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        input:focus,
+        textarea:focus{
+            border-color: #0f766e;
+            box-shadow: 0 0 0 3px rgba(15,118,110,0.15);
+        }
+
+        textarea{
+            resize: none;
+            height: 90px;
+        }
+
+        button{
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: #0f766e;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background: #115e59;
+        }
+
+        .error{
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-link{
+            margin-top: 18px;
+            text-align: center;
+        }
+
+        .login-link a{
+            color: #0f766e;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        @media(max-width:700px){
+
+            .form-grid{
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full{
+                grid-column: span 1;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="form-container">
+
+        <h1>Doctor Registration</h1>
+
+        <% if (typeof error !== "undefined" && error) { %>
+
+            <div class="error">
+                <%= error %>
+            </div>
+
+        <% } %>
+
+        <form action="/doctor/register" method="POST">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="firstName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Specialization</label>
+                    <input type="text" name="specialization" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Qualification</label>
+                    <input type="text" name="qualification" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Experience</label>
+                    <input type="number" name="experience" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Consultation Fee</label>
+                    <input type="number" name="consultationFee" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Available Days</label>
+                    <input type="text" name="availableDays" placeholder="Monday, Tuesday">
+                </div>
+
+                <div class="form-group">
+                    <label>Hospital Name</label>
+                    <input type="text" name="hospitalName">
+                </div>
+
+                <div class="form-group">
+                    <label>Start Time</label>
+                    <input type="time" name="startTime">
+                </div>
+
+                <div class="form-group">
+                    <label>End Time</label>
+                    <input type="time" name="endTime">
+                </div>
+
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" name="location" value="India">
+                </div>
+
+                <div class="form-group full">
+                    <label>Address</label>
+                    <textarea name="address"></textarea>
+                </div>
+
+            </div>
+
+            <button type="submit">
+                Register Doctor
+            </button>
+
+        </form>
+
+        <div class="login-link">
+            Already registered ?
+            <a href="/doctor/enter">Login</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #121521, #1a0233);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .card-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #b9bdd1, #a36cde);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+
+    <%- include('partials/bootstrap_style') %>
+</head>
+<body>
+
+    <div class="card-container">
+        <h2>Register</h2>
+        <%- include('partials/form_register') %>
+    </div>
+
+    <%- include('partials/bootstap_script') %>
+</body>
+</html>
